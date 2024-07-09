@@ -1,0 +1,119 @@
+{
+  "version": "1.1.1",
+  "windows": {
+    "main": {
+      "main": true,
+      "url": "app://editor/index.html",
+      "windowType": "dockable",
+      "x": 0,
+      "y": 31,
+      "width": 1792,
+      "height": 1016,
+      "layout": {
+        "type": "dock-v",
+        "children": [
+          {
+            "width": 1792,
+            "height": 656.421875,
+            "type": "dock-h",
+            "children": [
+              {
+                "width": 304,
+                "height": 656.421875,
+                "type": "panel",
+                "active": 0,
+                "children": [
+                  "assets"
+                ]
+              },
+              {
+                "width": 267,
+                "height": 656.421875,
+                "type": "panel",
+                "active": 0,
+                "children": [
+                  "hierarchy"
+                ]
+              },
+              {
+                "width": 788,
+                "height": 656.421875,
+                "type": "panel",
+                "active": 0,
+                "children": [
+                  "scene"
+                ]
+              },
+              {
+                "width": 424,
+                "height": 656.421875,
+                "type": "panel",
+                "active": 0,
+                "children": [
+                  "inspector",
+                  "cocos-services"
+                ]
+              }
+            ]
+          },
+          {
+            "width": 1792,
+            "height": 269.578125,
+            "type": "panel",
+            "active": 0,
+            "children": [
+              "console"
+            ]
+          }
+        ]
+      },
+      "panels": [
+        "assets",
+        "hierarchy",
+        "scene",
+        "inspector",
+        "cocos-services",
+        "console"
+      ]
+    }
+  },
+  "panels": {
+    "project-settings": {
+      "x": 0,
+      "y": 24,
+      "width": 1440,
+      "height": 876
+    },
+    "builder": {
+      "x": 392,
+      "y": 16,
+      "width": 640,
+      "height": 808
+    },
+    "sprite-editor": {
+      "x": 176,
+      "y": 122,
+      "width": 1440,
+      "height": 876
+    },
+    "i18ns": {
+      "x": 0,
+      "y": 24,
+      "width": 1440,
+      "height": 876
+    },
+    "console": {
+      "x": 440,
+      "y": 334,
+      "width": 1441,
+      "height": 877
+    },
+    "assets-encrypt": {
+      "x": 53,
+      "y": 25,
+      "width": 1440,
+      "height": 875
+    }
+  },
+  "panelLabelWidth": {}
+}

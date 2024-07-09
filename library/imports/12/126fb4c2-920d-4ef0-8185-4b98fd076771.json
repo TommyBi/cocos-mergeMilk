@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_common_wheel",
+    "texture": "13805dc2-084a-4872-aeac-d57911122305",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      576,
+      578
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      576,
+      578
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

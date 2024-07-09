@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_道具1",
+    "texture": "afb5e469-b66f-4653-9c79-98b307a59596",
+    "atlas": "",
+    "rect": [
+      25,
+      22,
+      111,
+      116
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      160,
+      160
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
