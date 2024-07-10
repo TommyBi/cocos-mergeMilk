@@ -36,6 +36,7 @@ export default class Utils {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    // 去重 - 随机生成指定数量指定区间的数组
     static randomIntArrFromSection(cnt: number, min: number, max: number): number[] {
         const result = [];
         do {
@@ -45,6 +46,25 @@ export default class Utils {
             }
         } while (result.length < cnt);
 
+        return result;
+    }
+
+    // 不去重 - 随机生成指定数量指定区间的数组
+    static randomIntArrInclusive(cnt, min, max): number[] {
+        const result = [];
+        do {
+            result.push(this.randomIntInclusive(min, max));
+        } while (result.length < cnt);
+        return result;
+    }
+
+    // 从给定的数组中随机生成一组指定数量的数组
+    static randomIntArrFromArr(cnt, srcArr): number[] {
+        const result = [];
+        do {
+            const index = this.randomIntInclusive(0, srcArr.length - 1);
+            result.push(srcArr[index]);
+        } while (result.length < cnt);
         return result;
     }
 }

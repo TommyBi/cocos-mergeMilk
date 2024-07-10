@@ -45,6 +45,7 @@ var Utils = /** @class */ (function () {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
+    // 去重 - 随机生成指定数量指定区间的数组
     Utils.randomIntArrFromSection = function (cnt, min, max) {
         var result = [];
         do {
@@ -52,6 +53,23 @@ var Utils = /** @class */ (function () {
             if (result.indexOf(v) === -1) {
                 result.push(v);
             }
+        } while (result.length < cnt);
+        return result;
+    };
+    // 不去重 - 随机生成指定数量指定区间的数组
+    Utils.randomIntArrInclusive = function (cnt, min, max) {
+        var result = [];
+        do {
+            result.push(this.randomIntInclusive(min, max));
+        } while (result.length < cnt);
+        return result;
+    };
+    // 从给定的数组中随机生成一组指定数量的数组
+    Utils.randomIntArrFromArr = function (cnt, srcArr) {
+        var result = [];
+        do {
+            var index = this.randomIntInclusive(0, srcArr.length - 1);
+            result.push(srcArr[index]);
         } while (result.length < cnt);
         return result;
     };
