@@ -29,4 +29,22 @@ export default class Utils {
 
         return cloneObj;
     }
+
+    static randomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    static randomIntArrFromSection(cnt: number, min: number, max: number): number[] {
+        const result = [];
+        do {
+            const v = this.randomIntInclusive(min, max);
+            if (result.indexOf(v) === -1) {
+                result.push(v);
+            }
+        } while (result.length < cnt);
+
+        return result;
+    }
 }

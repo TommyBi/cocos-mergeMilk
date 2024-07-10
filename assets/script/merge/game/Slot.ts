@@ -163,6 +163,7 @@ export default class Slot extends cc.Component {
 
         this.uImgSlotSelect.active = false;
 
+        // 重置选中状态
         gameModule.curSelectSlotIdx = -1;
     }
 

@@ -122,19 +122,116 @@ var GameModule = /** @class */ (function (_super) {
         }
         return true;
     };
+    // 获取当前最大数字
+    GameModule.prototype.getMaxValue = function () {
+        var maxValue = 0;
+        for (var i = 0; i < this.slotData.length; i++) {
+            for (var j = 0; j < this.slotData[i].length; j++) {
+                if (this.slotData[i][j] > maxValue) {
+                    maxValue = this.slotData[i][j];
+                }
+            }
+        }
+        return maxValue;
+    };
+    // 获取当前最小数字
+    GameModule.prototype.getMinValue = function () {
+        var minValue = -1;
+        for (var i = 0; i < this.slotData.length; i++) {
+            for (var j = 0; j < this.slotData[i].length; j++) {
+                if (minValue === -1) {
+                    minValue = this.slotData[i][j];
+                }
+                if (this.slotData[i][j] < minValue) {
+                    minValue = this.slotData[i][j];
+                }
+            }
+        }
+        return minValue;
+    };
+    GameModule.prototype.getSpaceBySlot = function (id) {
+        if (!this.slotData[id])
+            return;
+        for (var i = 0; i < this.slotData[id].length; i++) {
+            if (this.slotData[id][i] === 0) {
+                return 10 - i;
+            }
+        }
+    };
+    // 获取当前剩余空间
+    GameModule.prototype.getSpace = function () {
+        var space = 0;
+        for (var i = 0; i < 10; i++) {
+            space += this.getSpaceBySlot(i);
+        }
+        return space;
+    };
     // 生成新的筹码数据
     GameModule.prototype.produceNewCoinData = function () {
-        var newData = [
-            [],
-            [],
-            [],
-            [],
-            [],
-            [1, 1, 2, 2],
-            [1, 1, 1, 1],
-            [3, 3, 4, 4],
+        return [
+            [1], [1], [1], [1], [1], [1], [1], [1]
         ];
-        return newData;
+        var maxValue = this.getMaxValue();
+        var space = this.getSpace();
+        if (maxValue >= 15) {
+            console.warn('当前已合成15');
+            return;
+        }
+        if (space === 0) {
+            console.warn('没有剩余空间，无法生成新数字');
+            return;
+        }
+        if (maxValue < 8) {
+            return this.produceStrategyOne(maxValue, space);
+        }
+        else if (maxValue < 10) {
+            return this.produceStrategyTwo(maxValue, space);
+        }
+        else if (maxValue < 12) {
+            return this.produceStrategyThree(maxValue, space);
+        }
+        else if (maxValue < 15) {
+            return this.produceStrategyFour(maxValue, space);
+        }
+    };
+    // 仅剩一个空余位置的场景
+    GameModule.prototype.produceOnlyOne = function () {
+        return;
+    };
+    /**
+     * @description 小于8 策略
+     * 1、生成数量 min(space*30,5);
+     * 2、生成类型 <= 2
+     * 3、最小数 = 当前场景最小数-1
+     * @returns
+     */
+    GameModule.prototype.produceStrategyOne = function (max, space) {
+        console.log('策略1:<8');
+        if (space === 1) {
+            return this.produceOnlyOne();
+        }
+        var min = this.getMinValue();
+        // 确定需要生成的数量
+        var cnt = Math.max(Math.floor(Math.min(5, space * 0.3)), 2);
+        // 确定需要生成的数字种类
+        var types = Utils_1.default.randomIntArrFromSection(cnt, min, max);
+        // 根据种类和数量进行填充
+        return;
+    };
+    // 小于10的策略
+    GameModule.prototype.produceStrategyTwo = function (max, space) {
+        console.log('策略2:<10');
+        return;
+    };
+    // 小于12的策略
+    GameModule.prototype.produceStrategyThree = function (max, space) {
+        console.log('策略1:<12');
+        return;
+    };
+    // 小于15的策略
+    GameModule.prototype.produceStrategyFour = function (max, space) {
+        console.log('策略1:<15');
+        return;
     };
     // TODO: 新生成的数据和原有数据进行合成
     GameModule.prototype.mergeProduceData = function (newData) {

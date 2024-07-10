@@ -191,6 +191,7 @@ var Slot = /** @class */ (function (_super) {
                 .start();
         }
         this.uImgSlotSelect.active = false;
+        // 重置选中状态
         GameModule_1.gameModule.curSelectSlotIdx = -1;
     };
     // 移动

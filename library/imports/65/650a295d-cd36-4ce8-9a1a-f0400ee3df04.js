@@ -76,7 +76,6 @@ var Game = /** @class */ (function (_super) {
         // 缓存槽位的节点
         _this.slots = [];
         return _this;
-        // update (dt) {}
     }
     Game.prototype.onLoad = function () {
         return __awaiter(this, void 0, void 0, function () {

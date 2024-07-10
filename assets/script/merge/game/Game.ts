@@ -109,6 +109,4 @@ export default class Game extends cc.Component {
 
     // 整理
     onTidyUp() { }
-
-    // update (dt) {}
 }

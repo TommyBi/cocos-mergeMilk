@@ -40,6 +40,21 @@ var Utils = /** @class */ (function () {
         }
         return cloneObj;
     };
+    Utils.randomIntInclusive = function (min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+    Utils.randomIntArrFromSection = function (cnt, min, max) {
+        var result = [];
+        do {
+            var v = this.randomIntInclusive(min, max);
+            if (result.indexOf(v) === -1) {
+                result.push(v);
+            }
+        } while (result.length < cnt);
+        return result;
+    };
     return Utils;
 }());
 exports.default = Utils;
