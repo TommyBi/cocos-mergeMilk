@@ -207,6 +207,9 @@ export default class GameModule extends DataModule {
      * 1、生成数量 min(space*30,5);
      * 2、生成类型 <= 2
      * 3、最小数 = 当前场景最小数-1
+     * 
+     * @param max: 当前场景中最大的筹码数值
+     * @param space: 当前总的空间数
      * @returns 
      */
     produceStrategyOne(max: number, space: number): number[][] {
