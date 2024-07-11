@@ -105,6 +105,9 @@ export default class Game extends cc.Component {
         }
 
         gameModule.mergeProduceData(newCoinData);
+
+        // 发牌完成，检测是否可以合成
+        eventManager.dispatch(EventType.CHECK_MERGE);
     }
 
     // 整理
