@@ -6,11 +6,11 @@ import DataModule from './DataModule';
 export default class GameModule extends DataModule {
     // 用户的筹码槽位数据 1~10
     public slotData = [
-        [1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
-        [1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
-        [1, 1, 2, 2, 3, 3, 4, 4, 5, 5],
-        [2, 2, 3, 1, 1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [2, 2, 2, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 2, 2, 0, 0, 0, 0, 0, 0],
+        [2, 2, 2, 3, 3, 0, 0, 0, 0, 0],
+        [5, 5, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -188,11 +188,11 @@ export default class GameModule extends DataModule {
             return;
         }
 
-        if (maxValue < 8) {
+        if (maxValue < 5) {
             return this.produceStrategyOne(maxValue, space);
         } else if (maxValue < 10) {
             return this.produceStrategyTwo(maxValue, space);
-        } else if (maxValue < 12) {
+        } else if (maxValue < 14) {
             return this.produceStrategyThree(maxValue, space);
         } else if (maxValue < 15) {
             return this.produceStrategyFour(maxValue, space);
@@ -200,9 +200,9 @@ export default class GameModule extends DataModule {
     }
 
     /**
-     * @description 小于8 策略
+     * @description 小于5 策略
      * 1、生成数量 min(space*30,8);
-     * 2、生成类型 <= 2
+     * 2、生成类型 <= 3
      * 3、最小数 = 当前场景最小数-1
      * 
      * @param max: 当前场景中最大的筹码数值
@@ -210,19 +210,22 @@ export default class GameModule extends DataModule {
      * @returns 
      */
     produceStrategyOne(max: number, space: number): number[][] {
-        console.log('策略1:<8');
+        console.log('策略1:<5');
         // 场景中最小值
         const min = this.getMinValue();
 
         // 总共需要生成的数字数量
-        let totalCnt = Math.floor(Math.min(8, space * 0.3));
+        let totalCnt = Math.floor(Math.min(20, space * 0.5));
         if (totalCnt === 0) totalCnt = 1;
 
-        // 生成数字的类型数量
-        let typeCnt = totalCnt >= 2 ? 2 : totalCnt;
-
-        // 新生成的数字限定在比当前场景中最大的数字小1
+        // 新生成的数字类型限定在比当前场景中最大的数字小1
         const limitMax = max - 1 > 0 ? max - 1 : 1;
+
+        // 生成数字的类型数量 1、2、3、4、5
+        let typeCnt = totalCnt >= 4 ? 4 : totalCnt;
+
+        // 实际取数类型区间小于typeCnt，那么纠正typeCnt为较小的类型，确保不会出现场内未出现的数
+        if (limitMax - min + 1 < typeCnt) typeCnt = limitMax - min + 1;
 
         // 数字种类
         const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
@@ -247,26 +250,135 @@ export default class GameModule extends DataModule {
             spaceInfo[slotIdx]--;
         } while (allNewCoin.length > 0)
 
-
         return result;
     }
 
     // 小于10的策略
     produceStrategyTwo(max: number, space: number): number[][] {
         console.log('策略2:<10');
-        return;
+
+        // 场景中最小值
+        let min = Math.min(3, this.getMinValue());
+
+        // 总共需要生成的数字数量
+        let totalCnt = Math.floor(Math.min(20, space * 0.6));
+        if (totalCnt === 0) totalCnt = 1;
+
+        const limitMax = Math.min(max-1, 7);
+
+        // 生成数字的类型数量 min~7
+        let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
+
+        // 数字种类
+        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+
+        // 生成全部的随机筹码值
+        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+
+        // 确定当前的剩余空间情况
+        let spaceInfo = [];
+        for (let i = 0; i < 8; i++) {
+            const perSlotSpace = this.getSpaceBySlot(i);
+            spaceInfo.push(perSlotSpace);
+        }
+
+        // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
+        const result = [[], [], [], [], [], [], [], []];
+        do {
+            const slotIdx = Utils.randomIntInclusive(0, 7);
+            if (spaceInfo[slotIdx] === 0) continue;
+
+            result[slotIdx].push(allNewCoin.shift());
+            spaceInfo[slotIdx]--;
+        } while (allNewCoin.length > 0)
+
+        return result;
+
     }
 
-    // 小于12的策略
+    // 小于14的策略
     produceStrategyThree(max: number, space: number): number[][] {
-        console.log('策略1:<12');
-        return;
+        console.log('策略3:<14');
+
+        // 场景中最小值
+        let min = Math.min(8, this.getMinValue());
+
+        // 总共需要生成的数字数量
+        let totalCnt = Math.floor(Math.min(20, space * 0.6));
+        if (totalCnt === 0) totalCnt = 1;
+
+        const limitMax = Math.min(max-1, 10);
+
+        // 生成数字的类型数量 min~10
+        let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
+
+        // 数字种类
+        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+
+        // 生成全部的随机筹码值
+        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+
+        // 确定当前的剩余空间情况
+        let spaceInfo = [];
+        for (let i = 0; i < 8; i++) {
+            const perSlotSpace = this.getSpaceBySlot(i);
+            spaceInfo.push(perSlotSpace);
+        }
+
+        // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
+        const result = [[], [], [], [], [], [], [], []];
+        do {
+            const slotIdx = Utils.randomIntInclusive(0, 7);
+            if (spaceInfo[slotIdx] === 0) continue;
+
+            result[slotIdx].push(allNewCoin.shift());
+            spaceInfo[slotIdx]--;
+        } while (allNewCoin.length > 0)
+
+        return result;
+
     }
 
     // 小于15的策略
     produceStrategyFour(max: number, space: number): number[][] {
         console.log('策略1:<15');
-        return;
+
+        // 场景中最小值
+        let min = Math.min(6, this.getMinValue());
+
+        // 总共需要生成的数字数量
+        let totalCnt = Math.floor(Math.min(20, space * 0.7));
+        if (totalCnt === 0) totalCnt = 1;
+
+        const limitMax = Math.min(max-1, 9);
+
+        // 生成数字的类型数量 min~9
+        let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
+
+        // 数字种类
+        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+
+        // 生成全部的随机筹码值
+        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+
+        // 确定当前的剩余空间情况
+        let spaceInfo = [];
+        for (let i = 0; i < 8; i++) {
+            const perSlotSpace = this.getSpaceBySlot(i);
+            spaceInfo.push(perSlotSpace);
+        }
+
+        // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
+        const result = [[], [], [], [], [], [], [], []];
+        do {
+            const slotIdx = Utils.randomIntInclusive(0, 7);
+            if (spaceInfo[slotIdx] === 0) continue;
+
+            result[slotIdx].push(allNewCoin.shift());
+            spaceInfo[slotIdx]--;
+        } while (allNewCoin.length > 0)
+
+        return result;
     }
 
     // TODO: 新生成的数据和原有数据进行合成
