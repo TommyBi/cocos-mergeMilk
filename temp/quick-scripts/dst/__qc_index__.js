@@ -59,7 +59,6 @@ require('./assets/script/merge/manager/Define');
 require('./assets/script/merge/manager/Uimanager');
 require('./assets/script/merge/pulicCom/TouchEffect');
 require('./assets/script/merge/util/EventManager');
-require('./assets/script/merge/util/Utils');
 require('./assets/script/utils/AniUtil');
 require('./assets/script/utils/SDKManager');
 require('./assets/script/utils/Utils');

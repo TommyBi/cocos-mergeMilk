@@ -20,7 +20,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.gameModule = void 0;
 var Define_1 = require("../manager/Define");
 var EventManager_1 = require("../util/EventManager");
-var Utils_1 = require("../util/Utils");
+var NewUtils_1 = require("../util/NewUtils");
 var DataModule_1 = require("./DataModule");
 var GameModule = /** @class */ (function (_super) {
     __extends(GameModule, _super);
@@ -221,9 +221,9 @@ var GameModule = /** @class */ (function (_super) {
         if (limitMax - min + 1 < typeCnt)
             typeCnt = limitMax - min + 1;
         // 数字种类
-        var types = Utils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
+        var types = NewUtils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
         // 生成全部的随机筹码值
-        var allNewCoin = Utils_1.default.randomIntArrFromArr(totalCnt, types);
+        var allNewCoin = NewUtils_1.default.randomIntArrFromArr(totalCnt, types);
         // 确定当前的剩余空间情况
         var spaceInfo = [];
         for (var i = 0; i < 8; i++) {
@@ -233,7 +233,7 @@ var GameModule = /** @class */ (function (_super) {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         var result = [[], [], [], [], [], [], [], []];
         do {
-            var slotIdx = Utils_1.default.randomIntInclusive(0, 7);
+            var slotIdx = NewUtils_1.default.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0)
                 continue;
             result[slotIdx].push(allNewCoin.shift());
@@ -254,9 +254,9 @@ var GameModule = /** @class */ (function (_super) {
         // 生成数字的类型数量 min~7
         var typeCnt = totalCnt >= 3 ? 3 : totalCnt;
         // 数字种类
-        var types = Utils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
+        var types = NewUtils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
         // 生成全部的随机筹码值
-        var allNewCoin = Utils_1.default.randomIntArrFromArr(totalCnt, types);
+        var allNewCoin = NewUtils_1.default.randomIntArrFromArr(totalCnt, types);
         // 确定当前的剩余空间情况
         var spaceInfo = [];
         for (var i = 0; i < 8; i++) {
@@ -266,7 +266,7 @@ var GameModule = /** @class */ (function (_super) {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         var result = [[], [], [], [], [], [], [], []];
         do {
-            var slotIdx = Utils_1.default.randomIntInclusive(0, 7);
+            var slotIdx = NewUtils_1.default.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0)
                 continue;
             result[slotIdx].push(allNewCoin.shift());
@@ -287,9 +287,9 @@ var GameModule = /** @class */ (function (_super) {
         // 生成数字的类型数量 min~10
         var typeCnt = totalCnt >= 3 ? 3 : totalCnt;
         // 数字种类
-        var types = Utils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
+        var types = NewUtils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
         // 生成全部的随机筹码值
-        var allNewCoin = Utils_1.default.randomIntArrFromArr(totalCnt, types);
+        var allNewCoin = NewUtils_1.default.randomIntArrFromArr(totalCnt, types);
         // 确定当前的剩余空间情况
         var spaceInfo = [];
         for (var i = 0; i < 8; i++) {
@@ -299,7 +299,7 @@ var GameModule = /** @class */ (function (_super) {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         var result = [[], [], [], [], [], [], [], []];
         do {
-            var slotIdx = Utils_1.default.randomIntInclusive(0, 7);
+            var slotIdx = NewUtils_1.default.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0)
                 continue;
             result[slotIdx].push(allNewCoin.shift());
@@ -320,9 +320,9 @@ var GameModule = /** @class */ (function (_super) {
         // 生成数字的类型数量 min~9
         var typeCnt = totalCnt >= 3 ? 3 : totalCnt;
         // 数字种类
-        var types = Utils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
+        var types = NewUtils_1.default.randomIntArrFromSection(typeCnt, min, limitMax);
         // 生成全部的随机筹码值
-        var allNewCoin = Utils_1.default.randomIntArrFromArr(totalCnt, types);
+        var allNewCoin = NewUtils_1.default.randomIntArrFromArr(totalCnt, types);
         // 确定当前的剩余空间情况
         var spaceInfo = [];
         for (var i = 0; i < 8; i++) {
@@ -332,7 +332,7 @@ var GameModule = /** @class */ (function (_super) {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         var result = [[], [], [], [], [], [], [], []];
         do {
-            var slotIdx = Utils_1.default.randomIntInclusive(0, 7);
+            var slotIdx = NewUtils_1.default.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0)
                 continue;
             result[slotIdx].push(allNewCoin.shift());
@@ -343,7 +343,7 @@ var GameModule = /** @class */ (function (_super) {
     // TODO: 新生成的数据和原有数据进行合成
     GameModule.prototype.mergeProduceData = function (newData) {
         for (var slotIdx = 0; slotIdx < 8; slotIdx++) {
-            var newSlotData = Utils_1.default.deepClone(newData[slotIdx]);
+            var newSlotData = NewUtils_1.default.deepClone(newData[slotIdx]);
             for (var j = 0; j < 10; j++) {
                 if (this.slotData[slotIdx][j] === 0 && newSlotData.length > 0) {
                     var newCoinData = newSlotData.shift();

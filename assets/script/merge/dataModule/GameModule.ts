@@ -1,6 +1,6 @@
 import { EventType } from '../manager/Define';
 import { eventManager, GameEvent } from '../util/EventManager';
-import Utils from '../util/Utils';
+import NewUtils from '../util/NewUtils';
 import DataModule from './DataModule';
 
 export default class GameModule extends DataModule {
@@ -228,10 +228,10 @@ export default class GameModule extends DataModule {
         if (limitMax - min + 1 < typeCnt) typeCnt = limitMax - min + 1;
 
         // 数字种类
-        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+        const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
 
         // 生成全部的随机筹码值
-        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+        let allNewCoin = NewUtils.randomIntArrFromArr(totalCnt, types);
 
         // 确定当前的剩余空间情况
         let spaceInfo = [];
@@ -243,7 +243,7 @@ export default class GameModule extends DataModule {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         const result = [[], [], [], [], [], [], [], []];
         do {
-            const slotIdx = Utils.randomIntInclusive(0, 7);
+            const slotIdx = NewUtils.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0) continue;
 
             result[slotIdx].push(allNewCoin.shift());
@@ -270,10 +270,10 @@ export default class GameModule extends DataModule {
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
 
         // 数字种类
-        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+        const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
 
         // 生成全部的随机筹码值
-        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+        let allNewCoin = NewUtils.randomIntArrFromArr(totalCnt, types);
 
         // 确定当前的剩余空间情况
         let spaceInfo = [];
@@ -285,7 +285,7 @@ export default class GameModule extends DataModule {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         const result = [[], [], [], [], [], [], [], []];
         do {
-            const slotIdx = Utils.randomIntInclusive(0, 7);
+            const slotIdx = NewUtils.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0) continue;
 
             result[slotIdx].push(allNewCoin.shift());
@@ -313,10 +313,10 @@ export default class GameModule extends DataModule {
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
 
         // 数字种类
-        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+        const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
 
         // 生成全部的随机筹码值
-        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+        let allNewCoin = NewUtils.randomIntArrFromArr(totalCnt, types);
 
         // 确定当前的剩余空间情况
         let spaceInfo = [];
@@ -328,7 +328,7 @@ export default class GameModule extends DataModule {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         const result = [[], [], [], [], [], [], [], []];
         do {
-            const slotIdx = Utils.randomIntInclusive(0, 7);
+            const slotIdx = NewUtils.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0) continue;
 
             result[slotIdx].push(allNewCoin.shift());
@@ -356,10 +356,10 @@ export default class GameModule extends DataModule {
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
 
         // 数字种类
-        const types = Utils.randomIntArrFromSection(typeCnt, min, limitMax);
+        const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
 
         // 生成全部的随机筹码值
-        let allNewCoin = Utils.randomIntArrFromArr(totalCnt, types);
+        let allNewCoin = NewUtils.randomIntArrFromArr(totalCnt, types);
 
         // 确定当前的剩余空间情况
         let spaceInfo = [];
@@ -371,7 +371,7 @@ export default class GameModule extends DataModule {
         // 随机将已经生成的数字填充到相应的空位置处(一定是可以放得下的，剩余空间>=生成的数字数量)
         const result = [[], [], [], [], [], [], [], []];
         do {
-            const slotIdx = Utils.randomIntInclusive(0, 7);
+            const slotIdx = NewUtils.randomIntInclusive(0, 7);
             if (spaceInfo[slotIdx] === 0) continue;
 
             result[slotIdx].push(allNewCoin.shift());
@@ -384,7 +384,7 @@ export default class GameModule extends DataModule {
     // TODO: 新生成的数据和原有数据进行合成
     mergeProduceData(newData: number[][]): void {
         for (let slotIdx = 0; slotIdx < 8; slotIdx++) {
-            const newSlotData = Utils.deepClone(newData[slotIdx]);
+            const newSlotData = NewUtils.deepClone(newData[slotIdx]);
             for (let j = 0; j < 10; j++) {
                 if (this.slotData[slotIdx][j] === 0 && newSlotData.length > 0) {
                     const newCoinData = newSlotData.shift();
