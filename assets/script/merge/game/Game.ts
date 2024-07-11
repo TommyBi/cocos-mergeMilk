@@ -26,7 +26,7 @@ export default class Game extends cc.Component {
     async onLoad() {
         this.uBtnMerge.on(cc.Node.EventType.TOUCH_END, this.onMerge, this);
         this.uBtnProduce.on(cc.Node.EventType.TOUCH_END, this.onProduce, this);
-        this.uBtnTidyUp.on(cc.Node.EventType.TOUCH_END, this.onTidyUp, this);
+        this.uBtnTidyUp.on(cc.Node.EventType.TOUCH_END, this.onTidy, this);
 
         eventManager.on(EventType.CHECK_MERGE, this.updateBtn, this);
 
@@ -64,8 +64,8 @@ export default class Game extends cc.Component {
     private formatSlotData(): void {
         for (let i = 0; i < 8; i++) {
             this.slots[i].getComponent(Slot).formatData(i, gameModule.slotData[i]);
-            eventManager.dispatch(EventType.CHECK_MERGE);
         }
+        eventManager.dispatch(EventType.CHECK_MERGE);
     }
 
     // 更新按钮的显示状态
@@ -111,5 +111,9 @@ export default class Game extends cc.Component {
     }
 
     // 整理
-    onTidyUp() { }
+    onTidy() {
+        gameModule.tidyData();
+
+        this.formatSlotData();
+    }
 }

@@ -167,7 +167,7 @@ var GameModule = /** @class */ (function (_super) {
         }
         return space;
     };
-    // 生成新的筹码数据
+    //TODO: 生成新的筹码数据 服务器逻辑
     GameModule.prototype.produceNewCoinData = function () {
         // return [
         //     [1], [1], [1], [1], [1], [1], [1], [1]
@@ -351,6 +351,26 @@ var GameModule = /** @class */ (function (_super) {
                 }
             }
         }
+    };
+    /*
+     * TODO: 梳理棋盘数据
+     * @description: 保留场景中最大的8个种类数，每种数最多保留10个，其余都扔掉
+     */
+    GameModule.prototype.tidyData = function () {
+        var dataMap = {};
+        for (var i = 0; i < this.slotData.length; i++) {
+            for (var j = 0; j < 10; j++) {
+                if (this.slotData[i][j] !== 0) {
+                    if (dataMap["" + this.slotData[i][j]]) {
+                        dataMap["" + this.slotData[i][j]] += 1;
+                    }
+                    else {
+                        dataMap["" + this.slotData[i][j]] = 1;
+                    }
+                }
+            }
+        }
+        console.log('tidy dataMap:', dataMap);
     };
     return GameModule;
 }(DataModule_1.default));

@@ -1759,24 +1759,24 @@
     "meta": 1720575171802,
     "relativePath": "script/utils/Utils.ts"
   },
-  "650a295d-cd36-4ce8-9a1a-f0400ee3df04": {
-    "asset": 1720575067262,
-    "meta": 1720575173024,
-    "relativePath": "script/merge/game/Game.ts"
-  },
   "dcad5cd6-1a65-401d-859a-820a37c34581": {
     "asset": 1720575067263,
     "meta": 1720575173111,
     "relativePath": "script/merge/game/Slot.ts"
   },
-  "645669a6-7055-4c85-913b-82815cde7b5d": {
-    "asset": 1720668262510,
-    "meta": 1720668321941,
-    "relativePath": "script/merge/dataModule/GameModule.ts"
-  },
   "fbca95a4-8ce3-42f0-b30c-16f988fada06": {
     "asset": 1720668252164,
     "meta": 1720668321966,
     "relativePath": "script/merge/util/NewUtils.ts"
+  },
+  "650a295d-cd36-4ce8-9a1a-f0400ee3df04": {
+    "asset": 1720702743313,
+    "meta": 1720704181270,
+    "relativePath": "script/merge/game/Game.ts"
+  },
+  "645669a6-7055-4c85-913b-82815cde7b5d": {
+    "asset": 1720704330025,
+    "meta": 1720704331736,
+    "relativePath": "script/merge/dataModule/GameModule.ts"
   }
 }

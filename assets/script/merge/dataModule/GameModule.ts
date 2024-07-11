@@ -169,7 +169,7 @@ export default class GameModule extends DataModule {
         return space;
     }
 
-    // 生成新的筹码数据
+    //TODO: 生成新的筹码数据 服务器逻辑
     produceNewCoinData(): number[][] {
         // return [
         //     [1], [1], [1], [1], [1], [1], [1], [1]
@@ -264,7 +264,7 @@ export default class GameModule extends DataModule {
         let totalCnt = Math.floor(Math.min(20, space * 0.6));
         if (totalCnt === 0) totalCnt = 1;
 
-        const limitMax = Math.min(max-1, 7);
+        const limitMax = Math.min(max - 1, 7);
 
         // 生成数字的类型数量 min~7
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
@@ -307,7 +307,7 @@ export default class GameModule extends DataModule {
         let totalCnt = Math.floor(Math.min(20, space * 0.6));
         if (totalCnt === 0) totalCnt = 1;
 
-        const limitMax = Math.min(max-1, 10);
+        const limitMax = Math.min(max - 1, 10);
 
         // 生成数字的类型数量 min~10
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
@@ -350,7 +350,7 @@ export default class GameModule extends DataModule {
         let totalCnt = Math.floor(Math.min(20, space * 0.7));
         if (totalCnt === 0) totalCnt = 1;
 
-        const limitMax = Math.min(max-1, 9);
+        const limitMax = Math.min(max - 1, 9);
 
         // 生成数字的类型数量 min~9
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
@@ -392,6 +392,32 @@ export default class GameModule extends DataModule {
                 }
             }
         }
+    }
+
+    /*
+     * TODO: 梳理棋盘数据
+     * @description: 保留场景中最大的8个种类数，每种数最多保留10个，其余都扔掉
+     */
+    tidyData(): void {
+        const dataMap = {};
+        for (let i = 0; i < this.slotData.length; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (this.slotData[i][j] !== 0) {
+                    if (dataMap[`${this.slotData[i][j]}`]) {
+                        dataMap[`${this.slotData[i][j]}`] += 1;
+                    } else {
+                        dataMap[`${this.slotData[i][j]}`] = 1;
+                    }
+                }
+            }
+        }
+
+        for (const key in dataMap) {
+            if (dataMap[key] > 10) {
+                dataMap[key] = 10;
+            }
+        }
+
     }
 }
 export const gameModule = new GameModule();

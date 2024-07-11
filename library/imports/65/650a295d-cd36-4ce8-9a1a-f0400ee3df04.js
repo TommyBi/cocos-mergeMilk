@@ -84,7 +84,7 @@ var Game = /** @class */ (function (_super) {
                     case 0:
                         this.uBtnMerge.on(cc.Node.EventType.TOUCH_END, this.onMerge, this);
                         this.uBtnProduce.on(cc.Node.EventType.TOUCH_END, this.onProduce, this);
-                        this.uBtnTidyUp.on(cc.Node.EventType.TOUCH_END, this.onTidyUp, this);
+                        this.uBtnTidyUp.on(cc.Node.EventType.TOUCH_END, this.onTidy, this);
                         EventManager_1.eventManager.on(Define_1.EventType.CHECK_MERGE, this.updateBtn, this);
                         return [4 /*yield*/, this.addSlot()];
                     case 1:
@@ -136,8 +136,8 @@ var Game = /** @class */ (function (_super) {
     Game.prototype.formatSlotData = function () {
         for (var i = 0; i < 8; i++) {
             this.slots[i].getComponent(Slot_1.default).formatData(i, GameModule_1.gameModule.slotData[i]);
-            EventManager_1.eventManager.dispatch(Define_1.EventType.CHECK_MERGE);
         }
+        EventManager_1.eventManager.dispatch(Define_1.EventType.CHECK_MERGE);
     };
     // 更新按钮的显示状态
     Game.prototype.updateBtn = function () {
@@ -167,9 +167,14 @@ var Game = /** @class */ (function (_super) {
             this.slots[i].getComponent(Slot_1.default).produce(newCoinData[i], this.node.convertToWorldSpaceAR(this.uBtnProduce.getPosition()), startPosIdxs[i]);
         }
         GameModule_1.gameModule.mergeProduceData(newCoinData);
+        // 发牌完成，检测是否可以合成
+        EventManager_1.eventManager.dispatch(Define_1.EventType.CHECK_MERGE);
     };
     // 整理
-    Game.prototype.onTidyUp = function () { };
+    Game.prototype.onTidy = function () {
+        GameModule_1.gameModule.tidyData();
+        this.formatSlotData();
+    };
     __decorate([
         property(cc.Node)
     ], Game.prototype, "uBoxSlot", void 0);
