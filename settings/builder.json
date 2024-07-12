@@ -2,7 +2,9 @@
   "title": "mergeMilk",
   "packageName": "org.cocos2d.demo",
   "startScene": "6864309e-a883-4fbb-af0b-296d2279eef3",
-  "excludeScenes": [],
+  "excludeScenes": [
+    "307de22a-9c86-4b65-bdfa-7bf853368e8e"
+  ],
   "orientation": {
     "landscapeRight": false,
     "landscapeLeft": false,

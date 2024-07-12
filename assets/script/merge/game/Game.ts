@@ -77,6 +77,8 @@ export default class Game extends cc.Component {
     // 合成
     onMerge() {
         eventManager.dispatch(EventType.MERGE_COIN);
+        // 点击合成后，提前主动隐藏掉“合成”按钮避免连点
+        this.uBtnMerge.active = false;
     }
 
     // 发牌
