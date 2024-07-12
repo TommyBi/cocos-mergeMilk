@@ -32,7 +32,7 @@ var GameModule = /** @class */ (function (_super) {
             [2, 2, 2, 0, 0, 0, 0, 0, 0, 0],
             [1, 1, 2, 2, 0, 0, 0, 0, 0, 0],
             [2, 2, 2, 3, 3, 0, 0, 0, 0, 0],
-            [5, 5, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -357,6 +357,7 @@ var GameModule = /** @class */ (function (_super) {
      * @description: 保留场景中最大的8个种类数，每种数最多保留10个，其余都扔掉
      */
     GameModule.prototype.tidyData = function () {
+        // 1、记录每种类型数字的持有总数
         var dataMap = {};
         for (var i = 0; i < this.slotData.length; i++) {
             for (var j = 0; j < 10; j++) {
@@ -370,7 +371,43 @@ var GameModule = /** @class */ (function (_super) {
                 }
             }
         }
-        console.log('tidy dataMap:', dataMap);
+        console.log('dataMap:', dataMap);
+        // 2、根据每种数字类型，创建一个长度为10的类型，数量不足10补足0
+        var allData = [];
+        for (var key in dataMap) {
+            if (dataMap[key] > 10) {
+                dataMap[key] = 10;
+            }
+            var perTypeData = [];
+            for (var i = 0; i < 10; i++) {
+                if (i <= dataMap[key] - 1) {
+                    perTypeData.push(Number(key));
+                }
+                else {
+                    perTypeData.push(0);
+                }
+            }
+            allData.push(perTypeData);
+        }
+        // 3、将所有类型的数组从大到小有序排列
+        allData.sort(function (a, b) {
+            return b[0] - a[0];
+        });
+        // 最终标准格式化
+        if (allData.length > 8) {
+            // 类型超过8种 取前八
+            this.slotData = allData.slice(0, 7);
+        }
+        else {
+            // 不足8种，补足8种
+            for (var i = 0; i < 8; i++) {
+                if (allData.length <= i) {
+                    allData.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+                }
+            }
+            this.slotData = allData;
+        }
+        console.log('整理后的slotData:', allData, this.slotData);
     };
     return GameModule;
 }(DataModule_1.default));
