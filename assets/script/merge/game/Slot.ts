@@ -72,6 +72,7 @@ export default class Slot extends cc.Component {
     start() {
     }
 
+    // 格式化数据
     formatData(idx: number, data: number[]): void {
         this.idx = idx;
 

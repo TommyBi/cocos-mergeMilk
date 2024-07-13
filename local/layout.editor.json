@@ -75,7 +75,8 @@
         "cocos-services",
         "console"
       ]
-    }
+    },
+    "window-1720837001979": {}
   },
   "panels": {
     "project-settings": {
@@ -86,9 +87,9 @@
     },
     "builder": {
       "x": 392,
-      "y": 16,
+      "y": 25,
       "width": 640,
-      "height": 808
+      "height": 806
     },
     "sprite-editor": {
       "x": 176,
@@ -113,6 +114,12 @@
       "y": 25,
       "width": 1440,
       "height": 875
+    },
+    "preferences": {
+      "x": 440,
+      "y": 139,
+      "width": 584,
+      "height": 554
     }
   },
   "panelLabelWidth": {}

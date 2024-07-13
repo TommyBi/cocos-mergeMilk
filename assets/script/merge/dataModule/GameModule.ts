@@ -107,7 +107,7 @@ export default class GameModule extends DataModule {
         }
 
         // 刷新筹码显示情况
-        eventManager.dispatchEvent(new GameEvent(EventType.MOVE_END, ed));
+        eventManager.dispatch(EventType.MOVE_END, ed);
 
         // 重置当前选中状态
         this.resetSelectStatus();
