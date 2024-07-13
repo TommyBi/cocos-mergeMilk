@@ -67,6 +67,7 @@ export default class Slot extends cc.Component {
         eventManager.on(EventType.MOVE_END, this.onMoveEnd, this);
         eventManager.on(EventType.CHECK_MERGE, this.onUpdateMergeStatus, this);
         eventManager.on(EventType.MERGE_COIN, this.onMerge, this);
+        eventManager.on(EventType.MOVE_CHECK_FAIL, this.canNotMove, this);
     }
 
     start() {
@@ -79,7 +80,7 @@ export default class Slot extends cc.Component {
         for (let i = 0; i < 10; i++) {
             // data
             if (data[i] !== 0) {
-                this[`coin${i}`].getComponent(Coin).init(this.idx, data[i],()=>{
+                this[`coin${i}`].getComponent(Coin).init(this.idx, data[i], () => {
                     this[`coin${i}`].active = true;
                 });
             } else {
@@ -174,6 +175,7 @@ export default class Slot extends cc.Component {
         // 如果当前槽位已满则不允许移动
         if (gameModule.slotData[this.idx].indexOf(0) === -1) {
             console.log('筹码数量已满，不可移动');
+            eventManager.dispatch(EventType.MOVE_CHECK_FAIL);
             return;
         }
 
@@ -182,6 +184,7 @@ export default class Slot extends cc.Component {
         const curSelectCoinInfo = gameModule.getCurSelectSlotInfo();
         if (curSlotInfo.vaildNum !== -1 && curSlotInfo.vaildNum !== curSelectCoinInfo.num) {
             console.log('筹码类型不一致, 不可移动');
+            eventManager.dispatch(EventType.MOVE_CHECK_FAIL);
             return;
         }
 
@@ -228,6 +231,28 @@ export default class Slot extends cc.Component {
             tarSlotIdx: this.idx,
         }
         eventManager.dispatch(EventType.MOVE_COIN, eventData);
+    }
+
+    // 移动检测失败，提示不可移动
+    canNotMove(): void {
+        if (gameModule.curSelectSlotIdx !== this.idx) return;
+        if (gameModule.curSelectSlotIdx === -1) return;
+
+        for (let i = 0; i < gameModule.curSelectCoinIdxs.length; i++) {
+            const coinNode = this[`coin${gameModule.curSelectCoinIdxs[i]}`];
+            const oriPosX = coinNode.x;
+            cc.tween(coinNode)
+                .to(0.05, { x: oriPosX - 10 })
+                .to(0.1, { x: oriPosX + 10 })
+                .to(0.1, { x: oriPosX - 10 })
+                .to(0.05, { x: oriPosX })
+                .call(() => {
+                    if (i === gameModule.curSelectCoinIdxs.length - 1) {
+                        this.onDeSelect();
+                    }
+                })
+                .start();
+        }
     }
 
     // 开始进行移动

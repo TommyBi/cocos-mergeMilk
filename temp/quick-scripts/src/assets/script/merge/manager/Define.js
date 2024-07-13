@@ -11,6 +11,7 @@ var EventType;
     EventType["MOVE_END"] = "move_end";
     EventType["CHECK_MERGE"] = "check_merge";
     EventType["MERGE_COIN"] = "merge_coin";
+    EventType["MOVE_CHECK_FAIL"] = "move_check_fail";
 })(EventType = exports.EventType || (exports.EventType = {}));
 
 cc._RF.pop();
