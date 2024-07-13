@@ -78,8 +78,9 @@ export default class Slot extends cc.Component {
         for (let i = 0; i < 10; i++) {
             // data
             if (data[i] !== 0) {
-                this[`coin${i}`].active = true;
-                this[`coin${i}`].getComponent(Coin).init(this.idx, data[i]);
+                this[`coin${i}`].getComponent(Coin).init(this.idx, data[i],()=>{
+                    this[`coin${i}`].active = true;
+                });
             } else {
                 this[`coin${i}`].active = false;
             }
@@ -329,10 +330,12 @@ export default class Slot extends cc.Component {
 
         this.coin0.scale = 0;
         this.coin1.scale = 0;
-        this.coin0.active = true;
-        this.coin1.active = true;
-        this.coin0.getComponent(Coin).init(this.idx, mergeTargetValue);
-        this.coin1.getComponent(Coin).init(this.idx, mergeTargetValue);
+        this.coin0.getComponent(Coin).init(this.idx, mergeTargetValue, () => {
+            this.coin0.active = true;
+        });
+        this.coin1.getComponent(Coin).init(this.idx, mergeTargetValue, () => {
+            this.coin1.active = true;
+        });
 
         cc.tween(this.coin0)
             .to(0.5, { scale: 1 }, { easing: 'backOut' })
@@ -371,9 +374,8 @@ export default class Slot extends cc.Component {
             const coin = newCoinNode.getComponent(Coin);
             this.node.addChild(newCoinNode);
             coin.node.setPosition(localPosSrc);
-            coin.node.scale = 0;
-            coin.node.opacity = 0;
-            coin.init(this.idx, newCoin[i]);
+            coin.node.active = false;
+            coin.init(this.idx, newCoin[i], () => { coin.node.active = true; });
 
             // 确定要飞的目的地坐标
             const tarPosIdx = startPosIdx + dealCnt;
@@ -382,17 +384,18 @@ export default class Slot extends cc.Component {
             gameModule.produceLock += 1;
             cc.tween(coin.node)
                 .delay(0.1 * dealCnt)
-                .to(0.5, { scale: 1, opacity: 255, position: tarPos }, { easing: 'cubicInOut' })
+                .to(0.5, { position: tarPos }, { easing: 'cubicInOut' })
                 .call(() => {
-                    coin.node.destroy();
-                    this[`coin${tarPosIdx}`].getComponent(Coin).init(this.idx, newCoin[i]);
-                    this[`coin${tarPosIdx}`].active = true;
-                })
-                .call(() => {
+                    this[`coin${tarPosIdx}`].getComponent(Coin).init(this.idx, newCoin[i], () => {
+                        this[`coin${tarPosIdx}`].active = true;
+                        coin.node.active = false;
+                        coin.node.destroy();
+                    });
                     gameModule.produceLock -= 1;
                     if (gameModule.produceLock < 0) gameModule.produceLock = 0;
                 })
                 .start();
+
             dealCnt++;
         }
     }

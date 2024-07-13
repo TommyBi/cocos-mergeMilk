@@ -45,10 +45,10 @@ export default class GameModule extends DataModule {
         }
 
         // 正在进行合成操作
-        if (this.mergeLock !== 0){
+        if (this.mergeLock !== 0) {
             console.log('正在进行合成操作');
             return false;
-        } 
+        }
 
         if (this.produceLock !== 0) {
             console.log('正在发放筹码操作');
@@ -237,20 +237,18 @@ export default class GameModule extends DataModule {
     produceStrategyOne(max: number, space: number): number[][] {
         console.log('策略1:<5');
         // 场景中最小值
-        const min = this.getMinValue();
+        let min = Math.min(1, this.getMinValue());
 
         // 总共需要生成的数字数量
-        let totalCnt = Math.floor(Math.min(20, space * 0.5));
+        let totalCnt = Math.floor(Math.min(25, space * 0.6));
         if (totalCnt === 0) totalCnt = 1;
 
         // 新生成的数字类型限定在比当前场景中最大的数字小1
         const limitMax = max - 1 > 0 ? max - 1 : 1;
 
-        // 生成数字的类型数量 1、2、3、4、5
+        // 生成数字的类型数量 1、2、3、4
         let typeCnt = totalCnt >= 4 ? 4 : totalCnt;
-
-        // 实际取数类型区间小于typeCnt，那么纠正typeCnt为较小的类型，确保不会出现场内未出现的数
-        if (limitMax - min + 1 < typeCnt) typeCnt = limitMax - min + 1;
+        typeCnt = Math.min(typeCnt, limitMax - min + 1);
 
         // 数字种类
         const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
@@ -280,21 +278,23 @@ export default class GameModule extends DataModule {
 
     // 小于10的策略
     produceStrategyTwo(max: number, space: number): number[][] {
-        console.log('策略2:<10');
+        console.log('策略2:5<=x<10');
 
         // 场景中最小值
         let min = Math.min(3, this.getMinValue());
 
         // 总共需要生成的数字数量
-        let totalCnt = Math.floor(Math.min(20, space * 0.6));
+        let totalCnt = Math.floor(Math.min(22, space * 0.6));
         if (totalCnt === 0) totalCnt = 1;
 
+        // 最大值 7
         const limitMax = Math.min(max - 1, 7);
 
-        // 生成数字的类型数量 min~7
+        // 生成数字的类型数量(既不能超过可生成的总数量，也不能超过当前允许出现的类型上限)
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
+        typeCnt = Math.min(typeCnt, limitMax - min + 1);
 
-        // 数字种类
+        // 实际生成的种类
         const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
 
         // 生成全部的随机筹码值
@@ -323,7 +323,7 @@ export default class GameModule extends DataModule {
 
     // 小于14的策略
     produceStrategyThree(max: number, space: number): number[][] {
-        console.log('策略3:<14');
+        console.log('策略3: 10<x<14');
 
         // 场景中最小值
         let min = Math.min(8, this.getMinValue());
@@ -332,10 +332,12 @@ export default class GameModule extends DataModule {
         let totalCnt = Math.floor(Math.min(20, space * 0.6));
         if (totalCnt === 0) totalCnt = 1;
 
-        const limitMax = Math.min(max - 1, 10);
+        // 最大值 9~11
+        const limitMax = Math.min(max - 1, 11);
 
-        // 生成数字的类型数量 min~10
+        // 生成数字的类型数量(既不能超过可生成的总数量，也不能超过当前允许出现的类型上限)
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;
+        typeCnt = Math.min(typeCnt, limitMax - min + 1);
 
         // 数字种类
         const types = NewUtils.randomIntArrFromSection(typeCnt, min, limitMax);
@@ -361,7 +363,6 @@ export default class GameModule extends DataModule {
         } while (allNewCoin.length > 0)
 
         return result;
-
     }
 
     // 小于15的策略
@@ -369,13 +370,14 @@ export default class GameModule extends DataModule {
         console.log('策略1:<15');
 
         // 场景中最小值
-        let min = Math.min(6, this.getMinValue());
+        let min = Math.min(11, this.getMinValue());
 
         // 总共需要生成的数字数量
-        let totalCnt = Math.floor(Math.min(20, space * 0.7));
+        let totalCnt = Math.floor(Math.min(25, space * 0.8));
         if (totalCnt === 0) totalCnt = 1;
 
-        const limitMax = Math.min(max - 1, 9);
+        // 最大值11~13
+        const limitMax = Math.min(max - 1, 11);
 
         // 生成数字的类型数量 min~9
         let typeCnt = totalCnt >= 3 ? 3 : totalCnt;

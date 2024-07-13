@@ -12,7 +12,7 @@ export default class Coin extends cc.Component {
         this.ulblNum.string = '-';
     }
 
-    init(slotIdx: number, cnt: number): void {
+    init(slotIdx: number, cnt: number, cb:Function): void {
         const url: string = `images/coin/${cnt}`;
         cc.resources.load(url, cc.SpriteFrame, ((err, spriteFrame: cc.SpriteFrame) => {
             if (err) {
@@ -21,6 +21,7 @@ export default class Coin extends cc.Component {
             }
 
             this.uImgBg.spriteFrame = spriteFrame;
+            cb && cb()
         }));
 
         // this.ulblNum.string = `${slotIdx}-${cnt}`;
