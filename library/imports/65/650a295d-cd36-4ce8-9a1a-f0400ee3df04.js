@@ -147,6 +147,8 @@ var Game = /** @class */ (function (_super) {
     // 合成
     Game.prototype.onMerge = function () {
         EventManager_1.eventManager.dispatch(Define_1.EventType.MERGE_COIN);
+        // 点击合成后，提前主动隐藏掉“合成”按钮避免连点
+        this.uBtnMerge.active = false;
     };
     // 发牌
     Game.prototype.onProduce = function () {

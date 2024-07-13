@@ -360,6 +360,7 @@ var Slot = /** @class */ (function (_super) {
             .to(0.5, { scale: 1 }, { easing: 'backOut' })
             .start();
         this.uImgSlotMerge.active = false;
+        EventManager_1.eventManager.dispatch(Define_1.EventType.CHECK_MERGE);
     };
     // 生成筹码
     Slot.prototype.produce = function (newCoin, startGlobalPos, startPosIdx) {

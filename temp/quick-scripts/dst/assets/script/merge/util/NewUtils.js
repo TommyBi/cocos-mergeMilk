@@ -10,7 +10,7 @@
                     };
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}"use strict";
-cc._RF.push(module, 'fbca9WkjONC8LMMFvmI+toG', 'NewUtils');
+cc._RF.push(module, '85100MR3/pMT5YtpOTF2CAl', 'NewUtils');
 // script/merge/util/NewUtils.ts
 
 "use strict";

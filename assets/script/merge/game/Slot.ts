@@ -309,7 +309,9 @@ export default class Slot extends cc.Component {
                 .call(() => {
                     this[`coin${i}`].active = false;
                     this[`coin${i}`].scale = 1;
-                    if (i === 0) { this.onMergeFinish(); }
+                    if (i === 0) {
+                        this.onMergeFinish();
+                    }
                 })
                 .start();
         }
@@ -341,6 +343,8 @@ export default class Slot extends cc.Component {
             .start();
 
         this.uImgSlotMerge.active = false;
+
+        eventManager.dispatch(EventType.CHECK_MERGE);
     }
 
     // 生成筹码
