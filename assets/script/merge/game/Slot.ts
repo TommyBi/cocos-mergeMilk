@@ -327,7 +327,6 @@ export default class Slot extends cc.Component {
 
         console.log(`槽${this.idx} 合成${mergeTargetValue}`);
 
-        gameModule.mergeLock -= 1;
         this.coin0.scale = 0;
         this.coin1.scale = 0;
         this.coin0.active = true;
@@ -340,6 +339,10 @@ export default class Slot extends cc.Component {
             .start();
         cc.tween(this.coin1)
             .to(0.5, { scale: 1 }, { easing: 'backOut' })
+            .call(() => {
+                gameModule.mergeLock -= 1;
+                if (gameModule.mergeLock < 0) gameModule.mergeLock = 0;
+            })
             .start();
 
         this.uImgSlotMerge.active = false;
@@ -376,6 +379,7 @@ export default class Slot extends cc.Component {
             const tarPosIdx = startPosIdx + dealCnt;
             const posTar = this.coinOriginalPos[startPosIdx + dealCnt];
             const tarPos = cc.v2(posTar[0], posTar[1]);
+            gameModule.produceLock += 1;
             cc.tween(coin.node)
                 .delay(0.1 * dealCnt)
                 .to(0.5, { scale: 1, opacity: 255, position: tarPos }, { easing: 'cubicInOut' })
@@ -383,6 +387,10 @@ export default class Slot extends cc.Component {
                     coin.node.destroy();
                     this[`coin${tarPosIdx}`].getComponent(Coin).init(this.idx, newCoin[i]);
                     this[`coin${tarPosIdx}`].active = true;
+                })
+                .call(() => {
+                    gameModule.produceLock -= 1;
+                    if (gameModule.produceLock < 0) gameModule.produceLock = 0;
                 })
                 .start();
             dealCnt++;

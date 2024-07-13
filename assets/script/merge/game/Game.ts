@@ -76,6 +76,8 @@ export default class Game extends cc.Component {
 
     // 合成
     onMerge() {
+        if (!gameModule.canOperate) return;
+
         eventManager.dispatch(EventType.MERGE_COIN);
         // 点击合成后，提前主动隐藏掉“合成”按钮避免连点
         this.uBtnMerge.active = false;
@@ -83,6 +85,8 @@ export default class Game extends cc.Component {
 
     // 发牌
     onProduce() {
+        if (!gameModule.canOperate) return;
+
         const startPosIdxs: number[] = [];
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 10; j++) {
@@ -114,8 +118,9 @@ export default class Game extends cc.Component {
 
     // 整理
     onTidy() {
-        gameModule.tidyData();
+        if (!gameModule.canOperate) return;
 
+        gameModule.tidyData();
         this.formatSlotData();
     }
 }

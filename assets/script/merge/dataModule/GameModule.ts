@@ -23,7 +23,10 @@ export default class GameModule extends DataModule {
 
     // 移动锁
     moveLock: boolean = false;
+    // 合成引用计数
     mergeLock: number = 0;
+    // 生成筹码效果引用计数
+    produceLock: number = 0;
 
     constructor() {
         super();
@@ -31,6 +34,28 @@ export default class GameModule extends DataModule {
 
     parseData(data: any): void {
         super.parseData(data);
+    }
+
+    // 交互操作的检测，当前如果有正在发生的交互行为，则不允许触发更多的行为
+    get canOperate(): boolean {
+        // 正在有移动行为发生
+        if (this.moveLock) {
+            console.log('正在进行移动操作');
+            return false;
+        }
+
+        // 正在进行合成操作
+        if (this.mergeLock !== 0){
+            console.log('正在进行合成操作');
+            return false;
+        } 
+
+        if (this.produceLock !== 0) {
+            console.log('正在发放筹码操作');
+            return false;
+        }
+
+        return true;
     }
 
     /**
