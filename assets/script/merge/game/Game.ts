@@ -1,4 +1,5 @@
 import { gameModule } from '../dataModule/GameModule';
+import { SoundType, audioMgr } from '../manager/AudioMgr';
 import { EventType } from '../manager/Define';
 import { uimanager } from '../manager/Uimanager';
 import { eventManager } from '../util/EventManager';
@@ -86,6 +87,8 @@ export default class Game extends cc.Component {
     // 发牌
     onProduce() {
         if (!gameModule.canOperate) return;
+
+        audioMgr.playSound(SoundType.PRODUCE_COIN);
 
         const startPosIdxs: number[] = [];
         for (let i = 0; i < 8; i++) {

@@ -1,4 +1,5 @@
 import { gameModule } from '../dataModule/GameModule';
+import { SoundType, audioMgr } from '../manager/AudioMgr';
 import { EventType } from '../manager/Define';
 import { uimanager } from '../manager/Uimanager';
 import { eventManager } from '../util/EventManager';
@@ -237,6 +238,7 @@ export default class Slot extends cc.Component {
     canNotMove(): void {
         if (gameModule.curSelectSlotIdx !== this.idx) return;
         if (gameModule.curSelectSlotIdx === -1) return;
+        audioMgr.playSound(SoundType.ERROR);
 
         for (let i = 0; i < gameModule.curSelectCoinIdxs.length; i++) {
             const coinNode = this[`coin${gameModule.curSelectCoinIdxs[i]}`];
@@ -260,6 +262,8 @@ export default class Slot extends cc.Component {
         const eventData = e.data;
         if (this.idx !== gameModule.curSelectSlotIdx) return;
         console.log(`onMove: ${gameModule.curSelectSlotIdx} -> ${eventData.tarSlotIdx}`);
+
+        audioMgr.playSound(SoundType.MOVE_COIN);
 
         gameModule.moveLock = true;
 
@@ -326,6 +330,8 @@ export default class Slot extends cc.Component {
         const canMerge = gameModule.checkCanMergeBySlot(this.idx);
         if (!canMerge) return;
 
+        audioMgr.playSound(SoundType.MERGE_COIN);
+
         gameModule.mergeLock += 1;
 
         // 合成效果
@@ -385,6 +391,7 @@ export default class Slot extends cc.Component {
         // 不需要生成就不操作了
         if (newCoin.length === 0) {
             console.log(`${this.idx}槽无新筹码`);
+            audioMgr.playSound(SoundType.ERROR);
             return;
         }
 

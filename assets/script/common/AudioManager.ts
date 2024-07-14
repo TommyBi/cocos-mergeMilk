@@ -3,13 +3,13 @@ import { Logger } from "../utils/logger";
 export default class AudioManager {
     public static Instance: AudioManager = new AudioManager();
 
-    private constructor() {       
+    private constructor() {
     }
 
     private soundLib = {
 
     };
-    private audioIds={};
+    private audioIds = {};
 
     private hasShowIOSWebMask: null
 
@@ -85,12 +85,12 @@ export default class AudioManager {
         if (!this._sfxEnabled) {
             return;
         }
-        
-        cc.resources.preload(`sounds/${soundName}`,cc.AudioClip)
+
+        cc.resources.preload(`sounds/${soundName}`, cc.AudioClip)
     }
 
     // 音效
-    public playSFX(url: string, sfxVolume: any = this.sfxVolume,ext:string = ".mp3", loop: boolean = false, isFromNet: boolean = false,onStart?:Function) {
+    public playSFX(url: string, sfxVolume: any = this.sfxVolume, ext: string = ".mp3", loop: boolean = false, isFromNet: boolean = false, onStart?: Function) {
         if (this._sfxEnabled) {
             if (this.soundLib[`${url}`]) {
                 // Logger.debug("[AudioManager playSFX] ", url);
@@ -126,11 +126,11 @@ export default class AudioManager {
                     }));
                 }
             }
-        }else{
+        } else {
             onStart && onStart();
         }
     }
-    public stopSfxByUrl(url){
+    public stopSfxByUrl(url) {
         let audioId = this.audioIds[url];
         if (audioId != null) {
             cc.audioEngine.stop(audioId);

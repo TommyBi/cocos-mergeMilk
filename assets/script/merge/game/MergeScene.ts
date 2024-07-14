@@ -1,5 +1,6 @@
 import { playerModule } from '../dataModule/PlayerModule';
 import { LAYER } from '../define/TypeDefine';
+import { audioMgr } from '../manager/AudioMgr';
 import { uimanager } from '../manager/Uimanager';
 
 const { ccclass } = cc._decorator;
@@ -16,6 +17,9 @@ export default class MergeScene extends cc.Component {
 
         // login
         playerModule.login(() => {
+            // 初始化音频
+            audioMgr.init();
+            
             // 添加游戏玩法界面
             this.initGamePanel();
         })

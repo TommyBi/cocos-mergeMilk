@@ -18,7 +18,7 @@
             "type": "dock-h",
             "children": [
               {
-                "width": 244,
+                "width": 294,
                 "height": 556,
                 "type": "panel",
                 "active": 0,
@@ -27,7 +27,7 @@
                 ]
               },
               {
-                "width": 214,
+                "width": 204,
                 "height": 556,
                 "type": "panel",
                 "active": 0,
@@ -36,7 +36,7 @@
                 ]
               },
               {
-                "width": 633,
+                "width": 593,
                 "height": 556,
                 "type": "panel",
                 "active": 0,
@@ -76,8 +76,7 @@
         "console"
       ]
     },
-    "window-1720841974078": {},
-    " build-worker-worker": {}
+    " load-media-worker": {}
   },
   "panels": {
     "project-settings": {
@@ -93,10 +92,10 @@
       "height": 806
     },
     "sprite-editor": {
-      "x": 176,
-      "y": 122,
+      "x": 0,
+      "y": 25,
       "width": 1440,
-      "height": 876
+      "height": 801
     },
     "i18ns": {
       "x": 0,

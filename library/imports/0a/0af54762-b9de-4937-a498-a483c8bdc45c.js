@@ -61,6 +61,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var PlayerModule_1 = require("../dataModule/PlayerModule");
 var TypeDefine_1 = require("../define/TypeDefine");
+var AudioMgr_1 = require("../manager/AudioMgr");
 var Uimanager_1 = require("../manager/Uimanager");
 var ccclass = cc._decorator.ccclass;
 var MergeScene = /** @class */ (function (_super) {
@@ -77,6 +78,8 @@ var MergeScene = /** @class */ (function (_super) {
         Uimanager_1.uimanager.init(this.node);
         // login
         PlayerModule_1.playerModule.login(function () {
+            // 初始化音频
+            AudioMgr_1.audioMgr.init();
             // 添加游戏玩法界面
             _this.initGamePanel();
         });
