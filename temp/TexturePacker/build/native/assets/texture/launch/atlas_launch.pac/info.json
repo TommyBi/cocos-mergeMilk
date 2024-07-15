@@ -1,58 +1,58 @@
 {
-  "projectPath": "/Users/apple/Documents/proj/cocos_proj_milk",
+  "projectPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk",
   "actualPlatform": "wechatgame",
   "mtimes": {
     "8b4e56e9-6605-4186-a405-ce77343b5c10": {
-      "assetMtime": 1718799281210,
-      "metaMtime": 1719543760228
+      "assetMtime": 1720575067290,
+      "metaMtime": 1721041759012
     },
     "4bfc588e-bd57-4f8b-8b3c-cae1daebe131": {
-      "assetMtime": 1718799281217,
-      "metaMtime": 1719543760288
+      "assetMtime": 1720575067295,
+      "metaMtime": 1721041759074
     },
     "41cbc2c4-bfbd-4d29-b452-8e63a800e5a5": {
-      "assetMtime": 1718799281217,
-      "metaMtime": 1719543760288
+      "assetMtime": 1720575067295,
+      "metaMtime": 1721041759074
     },
     "7567e17a-6fc1-4fde-acd6-aad7c5017678": {
-      "assetMtime": 1718799281213,
-      "metaMtime": 1719543760281
+      "assetMtime": 1720575067292,
+      "metaMtime": 1721041759068
     },
     "8cd6f06d-6a15-492d-b9a2-7c93a8a73269": {
-      "assetMtime": 1718799281213,
-      "metaMtime": 1719543760281
+      "assetMtime": 1720575067292,
+      "metaMtime": 1721041759068
     },
     "85951259-3004-4f20-b505-64c301330bb1": {
-      "assetMtime": 1718799281212,
-      "metaMtime": 1719543760263
+      "assetMtime": 1720575067291,
+      "metaMtime": 1721041759066
     },
     "817b6ae5-4858-4cfc-85fc-cb199e7abcbe": {
-      "assetMtime": 1718799281212,
-      "metaMtime": 1719543760263
+      "assetMtime": 1720575067291,
+      "metaMtime": 1721041759066
     },
     "dd79f3ab-c6aa-458c-b2f3-46853ee00d5d": {
-      "assetMtime": 1718799281211,
-      "metaMtime": 1719543760261
+      "assetMtime": 1720575067290,
+      "metaMtime": 1721041759056
     },
     "8b01160c-3645-4c01-9328-05b8126fd33f": {
-      "assetMtime": 1718799281211,
-      "metaMtime": 1719543760261
+      "assetMtime": 1720575067290,
+      "metaMtime": 1721041759056
     },
     "dff39c11-1264-4545-befb-f72d3fdf0ac1": {
-      "assetMtime": 1718799281215,
-      "metaMtime": 1719543760283
+      "assetMtime": 1720575067292,
+      "metaMtime": 1721041759073
     },
     "a9745ddf-bc6d-436a-9c56-e23d846cc23b": {
-      "assetMtime": 1718799281215,
-      "metaMtime": 1719543760283
+      "assetMtime": 1720575067292,
+      "metaMtime": 1721041759073
     },
     "f3a74764-4323-440a-a29a-a4053208930e": {
-      "assetMtime": 1718799281210,
-      "metaMtime": 1719543760256
+      "assetMtime": 1720575067289,
+      "metaMtime": 1721041759053
     },
     "5016654d-47bd-4fdd-986e-0708ad50239b": {
-      "assetMtime": 1718799281210,
-      "metaMtime": 1719543760256
+      "assetMtime": 1720575067289,
+      "metaMtime": 1721041759053
     }
   },
   "result": {
@@ -88,7 +88,7 @@
             "name": "loading_bar",
             "uuid": "85951259-3004-4f20-b505-64c301330bb1",
             "textureUuid": "817b6ae5-4858-4cfc-85fc-cb199e7abcbe",
-            "path": "/Users/apple/Documents/proj/cocos_proj_milk/temp/trimImages/spritesheet_js_1720837036390_image_2.png",
+            "path": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/trimImages/spritesheet_js_1721046956980_image_2.png",
             "trim": {
               "x": 3,
               "y": 3,
@@ -101,7 +101,7 @@
             "rawHeight": 184,
             "width": 264,
             "height": 190,
-            "originalPath": "/Users/apple/Documents/proj/cocos_proj_milk/library/imports/81/817b6ae5-4858-4cfc-85fc-cb199e7abcbe.png",
+            "originalPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/library/imports/81/817b6ae5-4858-4cfc-85fc-cb199e7abcbe.png",
             "x": 0,
             "y": 0,
             "rotated": true,
@@ -112,7 +112,7 @@
             "name": "loading",
             "uuid": "dd79f3ab-c6aa-458c-b2f3-46853ee00d5d",
             "textureUuid": "8b01160c-3645-4c01-9328-05b8126fd33f",
-            "path": "/Users/apple/Documents/proj/cocos_proj_milk/temp/trimImages/spritesheet_js_1720837036390_image_3.png",
+            "path": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/trimImages/spritesheet_js_1721046956980_image_3.png",
             "trim": {
               "x": 3,
               "y": 267,
@@ -125,7 +125,7 @@
             "rawHeight": 164,
             "width": 244,
             "height": 170,
-            "originalPath": "/Users/apple/Documents/proj/cocos_proj_milk/library/imports/8b/8b01160c-3645-4c01-9328-05b8126fd33f.png",
+            "originalPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/library/imports/8b/8b01160c-3645-4c01-9328-05b8126fd33f.png",
             "x": 0,
             "y": 264,
             "rotated": true,
@@ -136,7 +136,7 @@
             "name": "tips",
             "uuid": "4bfc588e-bd57-4f8b-8b3c-cae1daebe131",
             "textureUuid": "41cbc2c4-bfbd-4d29-b452-8e63a800e5a5",
-            "path": "/Users/apple/Documents/proj/cocos_proj_milk/temp/trimImages/spritesheet_js_1720837036390_image_0.png",
+            "path": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/trimImages/spritesheet_js_1721046956979_image_0.png",
             "trim": {
               "x": 3,
               "y": 511,
@@ -149,7 +149,7 @@
             "rawHeight": 87,
             "width": 504,
             "height": 90,
-            "originalPath": "/Users/apple/Documents/proj/cocos_proj_milk/library/imports/41/41cbc2c4-bfbd-4d29-b452-8e63a800e5a5.png",
+            "originalPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/library/imports/41/41cbc2c4-bfbd-4d29-b452-8e63a800e5a5.png",
             "x": 0,
             "y": 508,
             "rotated": true,
@@ -160,7 +160,7 @@
             "name": "12",
             "uuid": "f3a74764-4323-440a-a29a-a4053208930e",
             "textureUuid": "5016654d-47bd-4fdd-986e-0708ad50239b",
-            "path": "/Users/apple/Documents/proj/cocos_proj_milk/temp/trimImages/spritesheet_js_1720837036390_image_5.png",
+            "path": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/trimImages/spritesheet_js_1721046956981_image_5.png",
             "trim": {
               "x": 93,
               "y": 511,
@@ -173,7 +173,7 @@
             "rawHeight": 120,
             "width": 100,
             "height": 126,
-            "originalPath": "/Users/apple/Documents/proj/cocos_proj_milk/library/imports/50/5016654d-47bd-4fdd-986e-0708ad50239b.png",
+            "originalPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/library/imports/50/5016654d-47bd-4fdd-986e-0708ad50239b.png",
             "x": 90,
             "y": 508,
             "rotatedWidth": 100,
@@ -183,7 +183,7 @@
             "name": "progress_bar_1",
             "uuid": "dff39c11-1264-4545-befb-f72d3fdf0ac1",
             "textureUuid": "a9745ddf-bc6d-436a-9c56-e23d846cc23b",
-            "path": "/Users/apple/Documents/proj/cocos_proj_milk/temp/trimImages/spritesheet_js_1720837036390_image_4.png",
+            "path": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/trimImages/spritesheet_js_1721046956981_image_4.png",
             "trim": {
               "x": 93,
               "y": 637,
@@ -196,7 +196,7 @@
             "rawHeight": 47,
             "width": 72,
             "height": 53,
-            "originalPath": "/Users/apple/Documents/proj/cocos_proj_milk/library/imports/a9/a9745ddf-bc6d-436a-9c56-e23d846cc23b.png",
+            "originalPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/library/imports/a9/a9745ddf-bc6d-436a-9c56-e23d846cc23b.png",
             "x": 90,
             "y": 634,
             "rotatedWidth": 72,
@@ -206,7 +206,7 @@
             "name": "progress_1",
             "uuid": "7567e17a-6fc1-4fde-acd6-aad7c5017678",
             "textureUuid": "8cd6f06d-6a15-492d-b9a2-7c93a8a73269",
-            "path": "/Users/apple/Documents/proj/cocos_proj_milk/temp/trimImages/spritesheet_js_1720837036390_image_1.png",
+            "path": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/trimImages/spritesheet_js_1721046956980_image_1.png",
             "trim": {
               "x": 93,
               "y": 690,
@@ -219,7 +219,7 @@
             "rawHeight": 40,
             "width": 66,
             "height": 46,
-            "originalPath": "/Users/apple/Documents/proj/cocos_proj_milk/library/imports/8c/8cd6f06d-6a15-492d-b9a2-7c93a8a73269.png",
+            "originalPath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/library/imports/8c/8cd6f06d-6a15-492d-b9a2-7c93a8a73269.png",
             "x": 90,
             "y": 687,
             "rotatedWidth": 66,
@@ -229,12 +229,12 @@
         "width": 190,
         "height": 1012,
         "name": "atlas_launch-1",
-        "imagePath": "/Users/apple/Documents/proj/cocos_proj_milk/temp/TexturePacker/build/native/assets/texture/launch/atlas_launch.pac/atlas_launch-1.png",
+        "imagePath": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/TexturePacker/build/native/assets/texture/launch/atlas_launch.pac/atlas_launch-1.png",
         "compressd": {
           "suffix": [
             ".png"
           ],
-          "imagePathNoExt": "/Users/apple/Documents/proj/cocos_proj_milk/temp/TexturePacker/build/native/assets/texture/launch/atlas_launch.pac/compressed/atlas_launch-1"
+          "imagePathNoExt": "/Users/liuyang/Documents/private/cocos_mergeMilk/cocos-mergeMilk/temp/TexturePacker/build/native/assets/texture/launch/atlas_launch.pac/compressed/atlas_launch-1"
         }
       }
     ],
