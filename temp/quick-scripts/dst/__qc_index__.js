@@ -53,6 +53,7 @@ require('./assets/script/merge/dataModule/PlayerModule');
 require('./assets/script/merge/define/TypeDefine');
 require('./assets/script/merge/game/Coin');
 require('./assets/script/merge/game/Game');
+require('./assets/script/merge/game/MergeProgress');
 require('./assets/script/merge/game/MergeScene');
 require('./assets/script/merge/game/Slot');
 require('./assets/script/merge/manager/AudioMgr');

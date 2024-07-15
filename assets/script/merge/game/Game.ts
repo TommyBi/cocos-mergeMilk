@@ -3,6 +3,7 @@ import { SoundType, audioMgr } from '../manager/AudioMgr';
 import { EventType } from '../manager/Define';
 import { uimanager } from '../manager/Uimanager';
 import { eventManager } from '../util/EventManager';
+import MergeProgress from './MergeProgress';
 import Slot from './Slot';
 
 const { ccclass, property } = cc._decorator;
@@ -21,6 +22,9 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     uBtnMerge: cc.Node = null;
 
+    @property(cc.Node)
+    uBar: cc.Node = null;
+
     // 缓存槽位的节点
     private slots: Slot[] = [];
 
@@ -30,10 +34,12 @@ export default class Game extends cc.Component {
         this.uBtnTidyUp.on(cc.Node.EventType.TOUCH_END, this.onTidy, this);
 
         eventManager.on(EventType.CHECK_MERGE, this.updateBtn, this);
+        eventManager.on(EventType.MERGE_END, this.updateProgress, this);
 
         await this.addSlot();
         this.formatSlotData();
         this.updateBtn();
+        this.updateProgress();
     }
 
     start() {
@@ -73,6 +79,11 @@ export default class Game extends cc.Component {
     updateBtn(): void {
         const canMerge = gameModule.checkCanMerge();
         this.uBtnMerge.active = canMerge.length > 0;
+    }
+
+    // 更新进度
+    updateProgress() {
+        this.uBar.getComponent(MergeProgress).updateProress();
     }
 
     // 合成
@@ -122,6 +133,11 @@ export default class Game extends cc.Component {
     // 整理
     onTidy() {
         if (!gameModule.canOperate) return;
+
+        // 如果当前有选中情况，取消当前选中的状态
+        if (gameModule.curSelectSlotIdx !== -1) {
+            eventManager.dispatch(EventType.CANCEL_SELECT);
+        }
 
         gameModule.tidyData();
         this.formatSlotData();

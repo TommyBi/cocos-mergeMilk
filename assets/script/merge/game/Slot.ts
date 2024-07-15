@@ -69,6 +69,7 @@ export default class Slot extends cc.Component {
         eventManager.on(EventType.CHECK_MERGE, this.onUpdateMergeStatus, this);
         eventManager.on(EventType.MERGE_COIN, this.onMerge, this);
         eventManager.on(EventType.MOVE_CHECK_FAIL, this.canNotMove, this);
+        eventManager.on(EventType.CANCEL_SELECT, this.onDeSelect, this);
     }
 
     start() {
@@ -377,6 +378,9 @@ export default class Slot extends cc.Component {
             .call(() => {
                 gameModule.mergeLock -= 1;
                 if (gameModule.mergeLock < 0) gameModule.mergeLock = 0;
+                if (gameModule.mergeLock === 0) {
+                    eventManager.dispatch(EventType.MERGE_END);
+                }
             })
             .start();
 
