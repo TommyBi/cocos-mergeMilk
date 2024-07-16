@@ -5,16 +5,7 @@ import DataModule from './DataModule';
 
 export default class GameModule extends DataModule {
     // 用户的筹码槽位数据 1~10
-    public slotData = [
-        [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-        [2, 2, 2, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 2, 2, 0, 0, 0, 0, 0, 0],
-        [2, 2, 2, 3, 3, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    ]
+    public slotData = [];
 
     // 当前正在选中的筹码槽位
     curSelectSlotIdx: number = -1;
@@ -28,12 +19,17 @@ export default class GameModule extends DataModule {
     // 生成筹码效果引用计数
     produceLock: number = 0;
 
+    // 当前星星数
+    star: number = 0;
+
     constructor() {
         super();
     }
 
     parseData(data: any): void {
         super.parseData(data);
+        this.slotData = data.slotData;
+        this.star = data.star;
     }
 
     // 交互操作的检测，当前如果有正在发生的交互行为，则不允许触发更多的行为
@@ -194,12 +190,8 @@ export default class GameModule extends DataModule {
         return space;
     }
 
-    //TODO: 生成新的筹码数据 服务器逻辑
+    //TODO: 生成新的筹码数据 （服务器逻辑）
     produceNewCoinData(): number[][] {
-        // return [
-        //     [1], [1], [1], [1], [1], [1], [1], [1]
-        // ]
-
         const maxValue = this.getMaxValue();
         const space = this.getSpace();
 
@@ -422,7 +414,7 @@ export default class GameModule extends DataModule {
     }
 
     /*
-     * TODO: 梳理棋盘数据
+     * TODO: 梳理棋盘数据(服务器逻辑)
      * @description: 保留场景中最大的8个种类数，每种数最多保留10个，其余都扔掉
      */
     tidyData(): void {

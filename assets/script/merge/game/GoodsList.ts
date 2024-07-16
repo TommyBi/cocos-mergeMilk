@@ -1,4 +1,6 @@
+import { goodsModule } from "../dataModule/GoodsModule";
 import { uimanager } from "../manager/Uimanager";
+import GoodsCom from "./GoodsCom";
 
 const { ccclass, property } = cc._decorator;
 
@@ -11,11 +13,18 @@ export default class GoodsList extends cc.Component {
     @property(cc.ScrollView)
     uPanel: cc.ScrollView = null;
 
-    async onLoad() {
-        for (let i = 0; i < 10; i++) {
+    onLoad() {
+
+    }
+
+    async initGoods() {
+        this.uPanel.content.removeAllChildren();
+        for (let i = 0; i < goodsModule.goods.length; i++) {
             const goods = await this.produceGoods();
+            goods.getComponent(GoodsCom).init(i);
             this.uPanel.content.addChild(goods);
-            goods.x = i * goods.width;
+            goods.x = i * goods.width + goods.width / 2;
+            this.uPanel.content.width = (i + 1) * goods.width;
         }
     }
 

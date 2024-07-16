@@ -49,6 +49,7 @@ require('./assets/script/lang/LocalizedLabel');
 require('./assets/script/lang/LocalizedSprite');
 require('./assets/script/merge/dataModule/DataModule');
 require('./assets/script/merge/dataModule/GameModule');
+require('./assets/script/merge/dataModule/GoodsModule');
 require('./assets/script/merge/dataModule/PlayerModule');
 require('./assets/script/merge/define/TypeDefine');
 require('./assets/script/merge/game/Coin');

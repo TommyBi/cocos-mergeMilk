@@ -3,6 +3,7 @@ import { SoundType, audioMgr } from '../manager/AudioMgr';
 import { EventType } from '../manager/Define';
 import { uimanager } from '../manager/Uimanager';
 import { eventManager } from '../util/EventManager';
+import GoodsList from './GoodsList';
 import MergeProgress from './MergeProgress';
 import Slot from './Slot';
 
@@ -25,6 +26,9 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     uBar: cc.Node = null;
 
+    @property(cc.Node)
+    uPanel: cc.Node = null;
+
     // 缓存槽位的节点
     private slots: Slot[] = [];
 
@@ -37,9 +41,16 @@ export default class Game extends cc.Component {
         eventManager.on(EventType.MERGE_END, this.updateProgress, this);
 
         await this.addSlot();
+
+        // 加载当前槽筹码状态
         this.formatSlotData();
         this.updateBtn();
+        
+        // 加载合成进度
         this.updateProgress();
+
+        // 加载商品
+        this.uPanel.getComponent(GoodsList).initGoods();
     }
 
     start() {

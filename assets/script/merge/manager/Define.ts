@@ -7,3 +7,14 @@ export enum EventType {
     MOVE_CHECK_FAIL = 'move_check_fail',
     CANCEL_SELECT = 'CANCEL_SELECT',
 }
+
+// 商品信息
+export type GoodsType = {
+    id: number,
+    star: number,
+    total: number,
+    used: number,
+    name: string,
+    desc: string,
+    url: string,
+}

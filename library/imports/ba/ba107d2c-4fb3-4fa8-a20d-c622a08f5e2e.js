@@ -37,7 +37,7 @@ var TouchEffect = /** @class */ (function (_super) {
     }
     TouchEffect.prototype.onLoad = function () {
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        // this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
     };
     TouchEffect.prototype.start = function () {
         this.initScaleX = this.node.scaleX;
@@ -49,6 +49,7 @@ var TouchEffect = /** @class */ (function (_super) {
         var tarScaleY = this.node.scaleY * 0.9;
         cc.tween(this.node)
             .to(this.scaleTime, { scaleX: tarScaleX, scaleY: tarScaleY })
+            .to(this.scaleTime, { scaleX: this.initScaleX, scaleY: this.initScaleY })
             .start();
     };
     TouchEffect.prototype.onTouchEnd = function () {

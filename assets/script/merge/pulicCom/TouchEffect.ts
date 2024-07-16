@@ -12,7 +12,7 @@ export default class TouchEffect extends cc.Component {
 
     onLoad() {
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        // this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
     }
 
     start() {
@@ -26,6 +26,7 @@ export default class TouchEffect extends cc.Component {
         const tarScaleY = this.node.scaleY * 0.9;
         cc.tween(this.node)
             .to(this.scaleTime, { scaleX: tarScaleX, scaleY: tarScaleY })
+            .to(this.scaleTime, { scaleX: this.initScaleX, scaleY: this.initScaleY })
             .start();
     }
 
