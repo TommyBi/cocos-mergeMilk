@@ -1300,7 +1300,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 150,
-      "height": 50.4
+      "height": 126
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1354,7 +1354,7 @@
     "_string": "x --",
     "_N$string": "x --",
     "_fontSize": 100,
-    "_lineHeight": 40,
+    "_lineHeight": 100,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1448,6 +1448,9 @@
     },
     "uPanel": {
       "__id__": 33
+    },
+    "ulblStar": {
+      "__id__": 37
     },
     "_id": ""
   },

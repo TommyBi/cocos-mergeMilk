@@ -29,6 +29,9 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     uPanel: cc.Node = null;
 
+    @property(cc.Label)
+    ulblStar: cc.Label = null;
+
     // 缓存槽位的节点
     private slots: Slot[] = [];
 
@@ -51,6 +54,9 @@ export default class Game extends cc.Component {
 
         // 加载商品
         this.uPanel.getComponent(GoodsList).initGoods();
+
+        // 主界面的元素信息
+        this.ulblStar.string = `x ${gameModule.star}`;
     }
 
     start() {

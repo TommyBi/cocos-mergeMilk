@@ -63,7 +63,7 @@ var PlayerModule_1 = require("../dataModule/PlayerModule");
 var TypeDefine_1 = require("../define/TypeDefine");
 var AudioMgr_1 = require("../manager/AudioMgr");
 var Uimanager_1 = require("../manager/Uimanager");
-var ccclass = cc._decorator.ccclass;
+var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var MergeScene = /** @class */ (function (_super) {
     __extends(MergeScene, _super);
     function MergeScene() {

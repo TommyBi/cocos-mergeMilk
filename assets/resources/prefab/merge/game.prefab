@@ -1299,8 +1299,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
-      "height": 126
+      "width": 225,
+      "height": 189
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1312,7 +1312,7 @@
       "ctor": "Float64Array",
       "array": [
         240.639,
-        0,
+        8.443,
         0,
         0,
         0,
@@ -1353,8 +1353,8 @@
     "_dstBlendFactor": 771,
     "_string": "x --",
     "_N$string": "x --",
-    "_fontSize": 100,
-    "_lineHeight": 100,
+    "_fontSize": 150,
+    "_lineHeight": 150,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1448,6 +1448,9 @@
     },
     "uPanel": {
       "__id__": 33
+    },
+    "ulblStar": {
+      "__id__": 37
     },
     "_id": ""
   },
