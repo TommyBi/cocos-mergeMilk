@@ -76,8 +76,7 @@
         "console"
       ]
     },
-    "window-1721138536956": {},
-    " build-worker-worker": {}
+    "window-1721139060498": {}
   },
   "panels": {
     "project-settings": {
@@ -87,8 +86,8 @@
       "height": 876
     },
     "builder": {
-      "x": 470,
-      "y": 25,
+      "x": 495,
+      "y": 72,
       "width": 640,
       "height": 806
     },
