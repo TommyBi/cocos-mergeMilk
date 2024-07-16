@@ -1121,14 +1121,14 @@
     "_prefab": {
       "__id__": 32
     },
-    "_name": "mergeProgress",
+    "_name": "goodsList",
     "_active": true,
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         0,
-        129.113,
+        297.883,
         0,
         0,
         0,
@@ -1153,9 +1153,9 @@
       "__id__": 31
     },
     "asset": {
-      "__uuid__": "f4abdea5-2f35-423d-b0ae-796fe12ed392"
+      "__uuid__": "40d88137-46ff-432c-9046-9f11e2888998"
     },
-    "fileId": "b8Fc7mINJO/JONHCY9xtR7",
+    "fileId": "69tPzqLk9CupSEe3VQSo0K",
     "sync": true
   },
   {
@@ -1167,14 +1167,14 @@
     "_prefab": {
       "__id__": 34
     },
-    "_name": "goodsList",
+    "_name": "mergeProgress",
     "_active": true,
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         0,
-        323.681,
+        129,
         0,
         0,
         0,
@@ -1199,9 +1199,9 @@
       "__id__": 33
     },
     "asset": {
-      "__uuid__": "b9675ae4-0b5f-478f-9ce2-9d9efb3762f3"
+      "__uuid__": "7996a3b1-ec62-470f-a802-a76ae9b40efa"
     },
-    "fileId": "c10FgVUe9It5m+htGBmt8z",
+    "fileId": "d5TGSuealNgoOHKzQ/XK9/",
     "sync": true
   },
   {
@@ -1299,8 +1299,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
-      "height": 126
+      "width": 225,
+      "height": 189
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1312,7 +1312,7 @@
       "ctor": "Float64Array",
       "array": [
         240.639,
-        0,
+        8.443,
         0,
         0,
         0,
@@ -1353,8 +1353,8 @@
     "_dstBlendFactor": 771,
     "_string": "x --",
     "_N$string": "x --",
-    "_fontSize": 100,
-    "_lineHeight": 100,
+    "_fontSize": 150,
+    "_lineHeight": 150,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1395,9 +1395,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "69e71872-a97b-41e6-af9d-77eb74a2855c"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -1444,10 +1442,10 @@
       "__id__": 21
     },
     "uBar": {
-      "__id__": 31
+      "__id__": 33
     },
     "uPanel": {
-      "__id__": 33
+      "__id__": 31
     },
     "ulblStar": {
       "__id__": 37

@@ -8,7 +8,7 @@
       "x": 0,
       "y": 25,
       "width": 1440,
-      "height": 874,
+      "height": 872,
       "layout": {
         "type": "dock-v",
         "children": [
@@ -18,7 +18,7 @@
             "type": "dock-h",
             "children": [
               {
-                "width": 294,
+                "width": 293,
                 "height": 556,
                 "type": "panel",
                 "active": 0,
@@ -27,7 +27,7 @@
                 ]
               },
               {
-                "width": 204,
+                "width": 249,
                 "height": 556,
                 "type": "panel",
                 "active": 0,
@@ -36,7 +36,7 @@
                 ]
               },
               {
-                "width": 593,
+                "width": 549,
                 "height": 556,
                 "type": "panel",
                 "active": 0,
@@ -75,7 +75,10 @@
         "cocos-services",
         "console"
       ]
-    }
+    },
+    " common-asset-worker-worker": {},
+    "window-1721144913562": {},
+    " build-worker-worker": {}
   },
   "panels": {
     "project-settings": {

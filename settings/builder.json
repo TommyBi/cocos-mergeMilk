@@ -2,9 +2,7 @@
   "title": "mergeMilk",
   "packageName": "org.cocos2d.demo",
   "startScene": "6864309e-a883-4fbb-af0b-296d2279eef3",
-  "excludeScenes": [
-    "307de22a-9c86-4b65-bdfa-7bf853368e8e"
-  ],
+  "excludeScenes": [],
   "orientation": {
     "landscapeRight": false,
     "landscapeLeft": false,
@@ -12,9 +10,9 @@
     "upsideDown": true
   },
   "webOrientation": "auto",
-  "inlineSpriteFrames": true,
+  "inlineSpriteFrames": false,
   "inlineSpriteFrames_native": true,
-  "mainCompressionType": "zip",
+  "mainCompressionType": "default",
   "mainIsRemote": true,
   "optimizeHotUpdate": false,
   "md5Cache": true,

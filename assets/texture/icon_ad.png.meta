@@ -14,10 +14,10 @@
   "subMetas": {
     "icon_ad": {
       "ver": "1.0.6",
-      "uuid": "3fe86e84-a639-4818-a8c7-60577d966b0c",
+      "uuid": "9b940bc1-7c4a-4daf-ab92-53f19f538af1",
       "importer": "sprite-frame",
       "rawTextureUuid": "dfa9a453-ec31-458a-aa05-8a7730ac4354",
-      "trimType": "custom",
+      "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
       "offsetX": 0,

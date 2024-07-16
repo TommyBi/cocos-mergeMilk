@@ -1,1 +1,0 @@
-{"version":3,"sources":["assets/script/game/data/SaveDataConfig.ts"],"names":[],"mappings":";;;;;;;AACA,IAAY,OAIX;AAJD,WAAY,OAAO;IACf,yCAAU,CAAA;IACV,uCAAK,CAAA;IACL,yCAAM,CAAA;AACV,CAAC,EAJW,OAAO,GAAP,eAAO,KAAP,eAAO,QAIlB","file":"","sourceRoot":"/","sourcesContent":["\nexport enum SaveKey {\n    Player = 0,\n    Level,\n    Signin,\n}"]}
