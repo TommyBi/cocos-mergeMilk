@@ -35,7 +35,7 @@ export default class AudioMgr {
     private musicId: number = -1;
 
     init() {
-        cc.log("audio init");
+        cc.log("audioMgr init");
         this.curBgMusic = null;
 
         this.musicVolume = 0.2;

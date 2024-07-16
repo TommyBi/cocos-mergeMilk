@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": 0,
       "y": 25,
-      "width": 1792,
-      "height": 1037,
+      "width": 1440,
+      "height": 874,
       "layout": {
         "type": "dock-v",
         "children": [
           {
-            "width": 1792,
-            "height": 670.640625,
+            "width": 1440,
+            "height": 556,
             "type": "dock-h",
             "children": [
               {
-                "width": 366,
-                "height": 670.640625,
+                "width": 294,
+                "height": 556,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 255,
-                "height": 670.640625,
+                "width": 204,
+                "height": 556,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -36,8 +36,8 @@
                 ]
               },
               {
-                "width": 738,
-                "height": 670.640625,
+                "width": 593,
+                "height": 556,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -45,8 +45,8 @@
                 ]
               },
               {
-                "width": 424,
-                "height": 670.640625,
+                "width": 340,
+                "height": 556,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -57,8 +57,8 @@
             ]
           },
           {
-            "width": 1792,
-            "height": 273.859375,
+            "width": 1440,
+            "height": 226,
             "type": "panel",
             "active": 0,
             "children": [
@@ -75,25 +75,24 @@
         "cocos-services",
         "console"
       ]
-    },
-    "window-1721139060498": {}
+    }
   },
   "panels": {
     "project-settings": {
-      "x": 176,
-      "y": 122,
+      "x": 0,
+      "y": 24,
       "width": 1440,
       "height": 876
     },
     "builder": {
-      "x": 495,
-      "y": 72,
+      "x": 392,
+      "y": 25,
       "width": 640,
-      "height": 806
+      "height": 801
     },
     "sprite-editor": {
-      "x": 176,
-      "y": 160,
+      "x": 0,
+      "y": 25,
       "width": 1440,
       "height": 801
     },
