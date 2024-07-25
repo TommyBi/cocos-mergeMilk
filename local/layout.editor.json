@@ -8,7 +8,7 @@
       "x": 0,
       "y": 25,
       "width": 1440,
-      "height": 872,
+      "height": 874,
       "layout": {
         "type": "dock-v",
         "children": [
@@ -76,9 +76,7 @@
         "console"
       ]
     },
-    " common-asset-worker-worker": {},
-    "window-1721144913562": {},
-    " build-worker-worker": {}
+    "window-1721912041802": {}
   },
   "panels": {
     "project-settings": {

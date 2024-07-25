@@ -9,8 +9,6 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class MergeScene extends cc.Component {
 
-    
-
     onLoad() {
         console.log('load mergeScene');
     }
@@ -27,6 +25,9 @@ export default class MergeScene extends cc.Component {
             // 添加游戏玩法界面
             this.initGamePanel();
         })
+
+        this.onShow();
+        this.onHide();
     }
 
     update() {
@@ -38,6 +39,18 @@ export default class MergeScene extends cc.Component {
         const gameNode: cc.Node = cc.instantiate(prefab);
         uimanager.add(gameNode, LAYER.UI);
         gameNode.setPosition(new cc.Vec2(0, 0));
+    }
+
+    onShow(): void {
+        wx.onShow(() => {
+            console.log('onShow');
+        })
+    }
+
+    onHide(): void {
+        wx.onHide(() => {
+            console.log('onHide');
+        })
     }
 }
 

@@ -83,6 +83,8 @@ var MergeScene = /** @class */ (function (_super) {
             // 添加游戏玩法界面
             _this.initGamePanel();
         });
+        this.onShow();
+        this.onHide();
     };
     MergeScene.prototype.update = function () {
         Uimanager_1.uimanager.udpateLayerShow();
@@ -101,6 +103,16 @@ var MergeScene = /** @class */ (function (_super) {
                         return [2 /*return*/];
                 }
             });
+        });
+    };
+    MergeScene.prototype.onShow = function () {
+        wx.onShow(function () {
+            console.log('onShow');
+        });
+    };
+    MergeScene.prototype.onHide = function () {
+        wx.onHide(function () {
+            console.log('onHide');
         });
     };
     MergeScene = __decorate([

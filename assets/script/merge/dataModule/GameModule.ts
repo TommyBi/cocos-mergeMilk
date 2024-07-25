@@ -22,6 +22,9 @@ export default class GameModule extends DataModule {
     // 当前星星数
     star: number = 0;
 
+    // 每回合额外获得的次数
+    extraChance: number = 0;
+
     constructor() {
         super();
     }

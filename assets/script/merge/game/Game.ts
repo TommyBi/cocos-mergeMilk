@@ -1,4 +1,5 @@
 import { gameModule } from '../dataModule/GameModule';
+import { playerModule } from '../dataModule/PlayerModule';
 import { SoundType, audioMgr } from '../manager/AudioMgr';
 import { EventType } from '../manager/Define';
 import { uimanager } from '../manager/Uimanager';
@@ -48,7 +49,7 @@ export default class Game extends cc.Component {
         // 加载当前槽筹码状态
         this.formatSlotData();
         this.updateBtn();
-        
+
         // 加载合成进度
         this.updateProgress();
 
@@ -151,6 +152,21 @@ export default class Game extends cc.Component {
     onTidy() {
         if (!gameModule.canOperate) return;
 
+        // 获得额外次数 
+        if (gameModule.extraChance < 2) {
+            // 分享获得
+            wx.shareAppMessage({
+                title: '我觉得你不行',
+            })
+        }
+
+        if (gameModule.extraChance < 4) {
+            // 通过看广告获得
+            
+        }
+    }
+
+    doTidy(): void {
         // 如果当前有选中情况，取消当前选中的状态
         if (gameModule.curSelectSlotIdx !== -1) {
             eventManager.dispatch(EventType.CANCEL_SELECT);
